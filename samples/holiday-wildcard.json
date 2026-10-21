@@ -1,0 +1,24 @@
+{
+  "type": ["VerifiableCredential", "CartMandate"],
+  "issuer": "did:web:agent.example-maison.com",
+  "credentialSubject": {
+    "agent_id": "agent-7f3c",
+    "intent_ref": "urn:mandate:intent:9a1b",
+    "cart": {
+      "currency": "EUR",
+      "total": "4200.00",
+      "items": [{ "sku": "M41177", "qty": 1, "unit_price": "4200.00" }]
+    },
+    "constraints": {
+      "allowed_merchants": ["*"],
+      "max_amount": "50000.00",
+      "human_present": true,
+      "expiry": "2026-12-26T00:00:00Z"
+    },
+    "nonce": null
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "verificationMethod": "did:web:agent.example-maison.com#key-1"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": ["VerifiableCredential", "CartMandate"],
+  "issuer": "did:web:agent.example-maison.com",
+  "credentialSubject": {
+    "cart": {
+      "currency": "EUR",
+      "total": "980.00",
+      "items": [{ "sku": "N60458", "qty": 1, "unit_price": "980.00" }]
+    },
+    "constraints": {
+      "allowed_merchants": ["did:web:airport.example-maison.com"],
+      "max_amount": "1000.00",
+      "human_present": true,
+      "expiry": "2026-12-21T00:00:00Z"
+    }
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "verificationMethod": "did:web:agent.example-maison.com#key-1"
+  }
+}
