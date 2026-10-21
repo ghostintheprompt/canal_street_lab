@@ -1,0 +1,12 @@
+{
+  "type": ["VerifiableCredential", "PaymentMandate"],
+  "issuer": "did:web:agent.example-maison.com",
+  "credentialSubject": {
+    "amount": "4200.00",
+    "currency": "EUR",
+    "payment_method": "4242 4242 4242 4242",
+    "constraints": { "human_present": true },
+    "nonce": null
+  },
+  "proof": { "type": "DataIntegrityProof", "verificationMethod": "did:web:agent.example-maison.com#key-1" }
+}

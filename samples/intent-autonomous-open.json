@@ -1,0 +1,15 @@
+{
+  "type": ["VerifiableCredential", "IntentMandate"],
+  "issuer": "did:web:agent.example-maison.com",
+  "credentialSubject": {
+    "agent_id": "agent-7f3c",
+    "request": "Shop for the client across the group this holiday season.",
+    "constraints": {
+      "allowed_merchants": ["*"],
+      "human_not_present": true,
+      "expiry": "2026-12-26T00:00:00Z"
+    },
+    "nonce": null
+  },
+  "proof": { "type": "DataIntegrityProof", "verificationMethod": "did:web:agent.example-maison.com#key-1" }
+}

@@ -1,0 +1,14 @@
+{
+  "type": ["VerifiableCredential", "PaymentMandate"],
+  "issuer": "did:web:agent.example-maison.com",
+  "credentialSubject": {
+    "cart_ref": "urn:mandate:cart:5f7e",
+    "amount": "4200.00",
+    "currency": "EUR",
+    "payment_method_ref": "tok_9f41a0c2",
+    "constraints": { "human_present": true },
+    "presence_evidence": "webauthn:assn-4411",
+    "nonce": "b7d2e9f1"
+  },
+  "proof": { "type": "DataIntegrityProof", "verificationMethod": "did:web:agent.example-maison.com#key-1" }
+}
