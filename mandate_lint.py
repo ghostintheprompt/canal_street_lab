@@ -112,6 +112,9 @@ def _check_intent(sub, cons, flag):
              "human-not-present intent with wildcard/uncapped scope; standing spend authority")
     _check_replay(sub, flag)
     _check_ttl(cons, flag)
+    # UNVERIFIED_PRESENCE applies to all mandate types: an intent asserting
+    # human_present at authoring time still needs presence_evidence to check.
+    _check_presence(sub, cons, flag)
 
 
 def _check_cart(sub, cons, cart, flag):

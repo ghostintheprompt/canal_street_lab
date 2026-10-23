@@ -56,6 +56,27 @@ class WeakIntent(unittest.TestCase):
              "REPLAYABLE", "LONG_TTL"},
         )
 
+    def test_intent_human_present_without_evidence(self):
+        # UNVERIFIED_PRESENCE is an all-types check: an Intent Mandate that
+        # asserts human_present with no presence_evidence must be flagged too.
+        base = {
+            "type": ["VerifiableCredential", "IntentMandate"],
+            "credentialSubject": {
+                "agent_id": "agent-7f3c",
+                "nonce": "n-1",
+                "constraints": {
+                    "allowed_merchants": ["did:web:store.example.com"],
+                    "max_amount": "100.00",
+                    "expiry": "2026-12-20T18:00:00Z",
+                    "human_present": True,
+                },
+            },
+        }
+        self.assertEqual(codes(base), {"UNVERIFIED_PRESENCE"})
+        # With evidence present, the flag clears (nothing else is weak).
+        base["credentialSubject"]["presence_evidence"] = "otp:verified"
+        self.assertEqual(codes(base), set())
+
 
 class WeakPayment(unittest.TestCase):
     def test_detached_payment(self):
